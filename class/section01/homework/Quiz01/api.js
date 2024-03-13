@@ -19,6 +19,7 @@ export function sixSeven(string) {
 
 export function privateNumber(string) {
   let newNum = string.substr(0, 8);
+  // 그냥 string에 인덱스로 접근해서 for문으로 뒷6자리를 '*'로 바꾸면 왜 안될까?
   newNum = newNum + "******";
   console.log(newNum);
 }
