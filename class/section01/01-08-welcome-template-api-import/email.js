@@ -14,7 +14,7 @@ export function emailCheck(email) {
   }
 }
 
-export function makingTemplate({ name, age, school }) {
+export function makingTemplate({ name, age, school, createdAt }) {
   const mytemplate = `
       <html>
           <body>
@@ -23,7 +23,7 @@ export function makingTemplate({ name, age, school }) {
               <div>이름: ${name}</div>
               <div>나이: ${age}</div>
               <div>학교: ${school}</div>
-              <div>가입일: ${getToday()}</div>
+              <div>가입일: ${createdAt}</div>
           </body>
       </html>
       `;
