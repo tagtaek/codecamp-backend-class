@@ -12,8 +12,9 @@ export function getToday() {
   return;
 }
 
-// const date = new Date(); // 자바스크립트 Date객체를 date라는 변수에 할당합니다.
+//Date 객체로 현재날짜, 시간을 받아오는 코드
 
+// const date = new Date(); // 자바스크립트 Date객체를 date라는 변수에 할당합니다.
 // date.getFullYear(); // 연도를 반환합니다.
 // date.getMonth(); // 월을 반환합니다. 0(월)부터 시작하므로 주의하세요!
 // date.getDate(); // 일을 반환합니다.
