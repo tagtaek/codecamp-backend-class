@@ -1,3 +1,4 @@
+/*
 //graphql 연습용 
 //http://backend-example.codebootcamp.co.kr/graphql
 
@@ -160,3 +161,4 @@ query{
       "fetchBoardsCount": 849
     }
   }
+*/
