@@ -26,6 +26,8 @@ function createTokenOfPhone(myphone) {
 
   sendTokenToSMS(myphone, mytoken);
   //나중에는, 함수명 자체가 주석이 되는 느낌으로!!
+
+  res.send("인증완료!!");
 }
 
 createTokenOfPhone("01012345678"); // 01012345678: 인자(argument)
