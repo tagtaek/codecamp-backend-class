@@ -1,5 +1,11 @@
 //const express = require('express') // 옛날방식 => commonjs
 import express from "express"; // 요즘방식 => module
+import { checkPhone, getToken, sendTokenToSMS } from "./phone.js";
+// import abc from './phone.js'                                     // export default 가져오기
+// import abc from './phone.js'                                     // export default 이름바꿔서 가져오기
+// import abc, {checkPhone, getToken} from...                       // export default와 export 함께 가져오기
+// import abc, {checkPhone as qqq, getToken} from...                // export 가져와서 이름바꾸기
+// import * as ttt from './phone.js' // 사용: ttt.getToken           // export 한번에 다 가져오기
 
 const app = express();
 
@@ -46,6 +52,7 @@ app.post("/boards", function (req, res) {
 });
 
 app.post("/tokens/phone", function (req, res) {
+  const myphone = req.body.qqq;
   // 1. 휴대폰번호 자릿수 맞는지 확인하기(10~11자리)
   const isVaild = checkPhone(myphone);
   if (isVaild === false) return; // <early-exit>
@@ -56,8 +63,13 @@ app.post("/tokens/phone", function (req, res) {
 
   //3. 핸드폰번호에 토큰 전송하기
   sendTokenToSMS(myphone, mytoken);
-  //나중에는, 함수명 자체가 주석이 되는 느낌으로!!
+
+  res.send("인증완료!!");
 });
+
+// 과제1. 번호 body에 넘기기
+// 과제2. import 완성해서 정상작동하게 만들기
+// 과제3. phone.js로 파일 분리하기
 
 app.listen(3000);
 
