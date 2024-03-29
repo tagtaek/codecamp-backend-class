@@ -10,9 +10,11 @@ import { checkPhone, getToken, sendTokenToSMS } from "./phone.js";
 import swaggerUi from "swagger-ui-express";
 import swaggerJsdoc from "swagger-jsdoc";
 import { options } from "./swagger/config.js";
+import cors from 'cors'
 
 const app = express();
 app.use(express.json()); //옛날에는 bodyParser 사용
+app.use(cors())
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerJsdoc(options)));
 // use: 모든 메서드(get, post..)에서 다 작동한다.
 app.get("/boards", function (req, res) {

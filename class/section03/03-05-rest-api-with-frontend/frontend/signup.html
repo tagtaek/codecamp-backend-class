@@ -12,12 +12,18 @@
             console.log("나의 핸드폰번호: ", myphone)
 
             // 2. 해당 휴대폰번호로 인증번호API 요청하기(fetch, axios 등 사용)
+            axios.post("http://localhost:3000/tokens/phone", {
+                qqq: myphone //qqq라는 상자에 myphone이 담긴다.
+            }).then((res) => {
+                console.log(res.data)
+                document.getElementById("result").innerText = res.data
+            })
         }
     </script>
 </head>
 <body>
     휴대폰 번호: <input id="myphone" type="text"/> <button onclick="zzz()">인증하기</button>
-    <div>인증상태</div>
+    <div id="result">인증상태</div>
     <button>회원가입하기</button>
 </body>
 </html>
