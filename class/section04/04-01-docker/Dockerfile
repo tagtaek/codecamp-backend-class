@@ -39,7 +39,7 @@ COPY ./index.js /index.js
 #CMD 명령어는 마지막에 한번만 사용할 수 있다.
 CMD node index.js
 
-#터미널에 >> docker build . >> 현재 폴더안엔있는 도커파일 빌드해줘.
+#터미널에 >> docker build . >> 현재 폴더안엔있는 도커파일 빌드해줘. =>> 도커이미지 만들기
 #저장한 이미지를 보고 싶으면 >>   docker images
 #이미지를 실행시키고 싶어 >>  docker run 5dcdd26f25f5(이미지 id)
 #도커 터미널에서 >> 몇개의 프로세스가 있는지 알고 싶어 >> docker ps
