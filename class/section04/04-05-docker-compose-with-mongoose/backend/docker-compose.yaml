@@ -1,0 +1,30 @@
+# docker파일들을 그루핑해주는 docker 설정 파일.
+
+version: '3.7'
+
+# 컴퓨터들
+# 이 설정파일에서는 띄어쓰기로 부모자식관계가 만들어진다(중요!!)
+services:
+
+ # 컴퓨터이름
+ my-backend:
+  build:
+  # 경로:현위치 , 그 위치에 있는 도커파일 이름
+   context: .
+   dockerfile: Dockerfile
+  # port forwarding 
+  ports:
+   - 4000:4000
+
+ # 컴퓨터이름
+ my-database:
+  image: mongo:5
+  # port forwarding 
+  ports:
+  - 27017:27017
+
+
+# 빌드: docker-compose build
+# 실행: docker-compose up
+# 종료: 그냥 docker가 실행중인 터미널에서 'control+c' #뭔가 문제가 있으면 터미널에서 'docker-compose stop'
+# 코드부터 명령어까지 너무나 간단해서, 컴퓨터 하나만 있어도 docker-compose로 감싸서 실행시키기기도 한다.
