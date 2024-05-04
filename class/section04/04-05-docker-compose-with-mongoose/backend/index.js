@@ -97,7 +97,7 @@ const { name, age, school, email } = req.body // 구조분해할당
   res.send("가입완료!!")
 })
 
-mongoose.connect("mongodb://localhost:27017/mydocker")
+mongoose.connect("mongodb://my-database:27017/mydocker")
   .then(() => console.log("db 접속에 성공하였습니다."))
   .catch(() => console.log("db 접속에 실패하였습니다."))
 //없는 db를 연결하면 자동으로 생성됨
