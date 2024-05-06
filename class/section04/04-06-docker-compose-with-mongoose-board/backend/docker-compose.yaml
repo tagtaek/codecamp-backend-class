@@ -1,0 +1,36 @@
+# docker파일들을 그루핑해주는 docker 설정 파일.
+
+version: '3.7'
+
+# 컴퓨터들
+# 이 설정파일에서는 띄어쓰기로 부모자식관계가 만들어진다(중요!!)
+services:
+
+ # 컴퓨터이름
+ my-backend:
+  build:
+  # 경로:현위치 , 그 위치에 있는 도커파일 이름
+   context: .
+   dockerfile: Dockerfile
+  # port forwarding 
+  ports:
+   - 4000:4000
+
+ # 컴퓨터이름
+ my-database:
+  image: mongo:5
+  # docker-compose에서 네임리졸루션을 해줄거기 때문에, port forwarding 가 필요없음.
+  # ports:
+  # - 27017:27017 => 단, 이제 몽고db 컴패스에서 접속 안됨.
+  #               => 하지만, 네임리졸루션으로 express에서는 접속 됨.
+
+  # my-backend 도커에서 27017포트를 본인의 도커에서 찾기때문에 접속error
+  # docker-compose를 사용하는 경우, index.js에서 my-database:27017을 추가해서
+  # my-backend와 my-database 도커 사이에 통로를 만들어줄 수 있다.
+  # 이런경우, 포트 포워딩이 필요 없음.
+
+
+# 빌드: docker-compose build
+# 실행: docker-compose up
+# 종료: 그냥 docker가 실행중인 터미널에서 'control+c' #뭔가 문제가 있으면 터미널에서 'docker-compose stop'
+# 코드부터 명령어까지 너무나 간단해서, 컴퓨터 하나만 있어도 docker-compose로 감싸서 실행시키기기도 한다.
